@@ -84,6 +84,30 @@ local ESP = LeftGroupBox:AddButton('ESP', function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))()
 end)
 
+local sigil = LeftGroupBox:AddButton('Sigil Helmet', function()
+    for i,v in pairs(game:GetService("Workspace").Kyley:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local metalArm = LeftGroupBox:AddButton('Metal Arm', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Engineers.Engineer:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local dye = LeftGroupBox:AddButton('Dye Metal Arm', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Misc.DyeSeller.ClickPart:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
 local RightGroupBox = Tabs.Main:AddRightGroupbox('Teleport')
 
 local CR = RightGroupBox:AddButton('Castle Rock', function()
