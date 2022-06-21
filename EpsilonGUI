@@ -1,0 +1,324 @@
+-- New example script written by wally
+-- You can suggest changes with a pull request or something
+
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    -- Set Center to true if you want the menu to appear in the center
+    -- Set AutoShow to true if you want the menu to appear when it is created
+    -- Position and Size are also valid options here
+    -- but you do not need to define them unless you are changing them :)
+
+    Title = 'Derminator | Epsilon Lineage 2',
+    Center = true, 
+    AutoShow = true,
+})
+
+-- Mod Notifier
+
+
+
+-- You do not have to set your tabs & groups up this way, just a prefrence.
+local Tabs = {
+    -- Creates a new tab titled Main
+    Main = Window:AddTab('Main'), 
+    Classes = Window:AddTab('Classes'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+
+-- Groupbox and Tabbox inherit the same functions
+-- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
+local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Player')
+
+-- Groupbox:AddButton
+-- Arguments: Text, Callback
+
+local NoFall = LeftGroupBox:AddButton('No Fall Damage', function()
+    game.Players.LocalPlayer.Character.FallDamage.Disabled = true
+end)
+
+local AutoPickup = LeftGroupBox:AddButton('Auto Pickup', function()
+    local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+    for i, v in pairs(workspace.MouseIgnore:GetChildren()) do
+        if v:IsA("Model") and v.Name ~= "Entity" then
+            for _, g in pairs(v:GetDescendants()) do
+                if g:IsA("ClickDetector") then
+                    plr.CFrame = g.Parent.CFrame
+                    wait(0.3)
+                end
+            end
+        end
+    end
+end)
+
+local BuyFood = LeftGroupBox:AddButton('Meat', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Misc.Dorgon:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end
+end)
+
+local AutoCasket = LeftGroupBox:AddButton('Auto Casket', function()
+    local plr = game.Players.LocalPlayer
+    local char = plr.Character
+    local root = char:FindFirstChild("HumanoidRootPart")
+    _G.magdist = 249
+    task.spawn(function()
+        while task.wait(0.05) do 
+            for i,v in pairs(game:GetService("Workspace").Map.dungeonThingIdk.Caskets:GetDescendants()) do 
+                if v.Name == "ProximityPrompt" and v.Parent:IsA("BasePart") and (v.Parent.Position - root.Position).Magnitude <= _G.magdist then
+                    fireproximityprompt(v, 10)
+                end 
+            end 
+        end 
+    end)
+end)
+
+local RightGroupBox = Tabs.Main:AddRightGroupbox('Teleport')
+
+local CR = RightGroupBox:AddButton('Castle Rock', function()
+    for i,v in pairs(game:GetService("Workspace")["The Eagle"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Ceeris = RightGroupBox:AddButton('Ceeris', function()
+    for i,v in pairs(workspace.EYEBALLS:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end
+    end
+    wait(4) 
+    for i,v in pairs(game:GetService("Workspace").EerisOpen:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end
+    wait(1)
+    for i,v in pairs(workspace.EyeList:GetDescendants()) do 
+        if v:IsA("BasePart") then 
+            local h = Instance.new("Highlight"); h.Parent = v
+        end 
+    end 
+    for i,v in pairs(workspace.Map['Kingdom Of Ceeris']:GetDescendants()) do 
+        if string.find(v.ClassName:lower(), 'union') or v.Name == "MeshPart" and v.Transparency ~= 1 then 
+            local h = Instance.new("Highlight"); h.Parent = v
+        end 
+    end 
+end)
+
+local Catacombs = RightGroupBox:AddButton('Catacombs', function()
+    for i,v in pairs(game:GetService("Workspace").Map.dungeonThingIdk.trapdoor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+-- Tabboxes are a tiny bit different, but here's a basic example:
+
+
+local TabBox = Tabs.Classes:AddLeftTabbox() -- Add Tabbox on left side
+local TabBox1 = Tabs.Classes:AddRightTabbox() -- Add Tabbox on right side
+
+local Tab1 = TabBox:AddTab('Oni')
+
+local Akuma = Tab1:AddButton('Akuma (300 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Ethan:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Oni = Tab1:AddButton('Oni (1250 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Big Hoss"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local OniArmor = Tab1:AddButton('Armor (1350 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.OniArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab2 = TabBox:AddTab('Dsage')
+
+local Monk = Tab2:AddButton('Monk (200 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Isaac:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Dsage = Tab2:AddButton('Dragon Sage (2000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Ragash Al'vul"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local DsageArmor = Tab2:AddButton('Armor (250 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.Sage:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab3 = TabBox:AddTab('Kizaru')
+
+local BLeg1 = Tab3:AddButton('Black Leg (600 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Gordon:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Kizaru = Tab3:AddButton('Kizaru (2500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.pika:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local KizaruArmor = Tab3:AddButton('Armor (250 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Kizaru:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab4 = TabBox:AddTab('Inferno')
+
+local BLeg2 = Tab4:AddButton('Black Leg (600 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Gordon:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Inferno = Tab4:AddButton('Inferno (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").mera:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local InfernoArmor = Tab4:AddButton('Armor (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Ace:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab5 = TabBox1:AddTab('Beowulf')
+
+local Pugilist = Tab5:AddButton('Pugilist (500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Wooden Dummy"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Beowulf = Tab5:AddButton('Beowulf (1750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Beowulf:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab6 = TabBox1:AddTab('Shaolin')
+
+local Monk1 = Tab6:AddButton('Monk (200 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Isaac:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Shaolin = Tab6:AddButton('Shaolin (2500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Menime:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local ShaolinArmor = Tab6:AddButton('Armor (2000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").SecondOrder:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+
+-- UI Settings
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+-- I set NoUI so it does not show up in the keybinds menu
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
+
+Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- ThemeManager (Allows you to have a menu theme system)
+
+-- Hand the library over to our managers
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+-- Ignore keys that are used by ThemeManager. 
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings() 
+
+-- Adds our MenuKeybind to the ignore list 
+-- (do you want each config to have a different menu key? probably not.)
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+
+-- use case for doing it this way: 
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+ThemeManager:SetFolder('MyScriptHub')
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+-- Builds our config menu on the right side of our tab
+SaveManager:BuildConfigSection(Tabs['UI Settings']) 
+
+-- Builds our theme menu (with plenty of built in themes) on the left side
+-- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config 
+-- which has been marked to be one that auto loads!
+
+-- IY
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
