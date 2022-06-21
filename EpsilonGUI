@@ -38,6 +38,53 @@ local NoFall = LeftGroupBox:AddButton('No Fall Damage', function()
     game.Players.LocalPlayer.Character.FallDamage.Disabled = true
 end)
 
+local mod = LeftGroupBox:AddButton('Mod Detector', function()
+    local function callback(Text)
+        if Text == "Leave" then
+            game.Players.LocalPlayer:Kick("Left Safely")
+        elseif Text == "Ignore" then 
+            return
+        end
+    end
+    local bindableFunction = Instance.new("BindableFunction")
+    bindableFunction.OnInvoke = callback
+
+    MD.MouseButton1Click:Connect(function()
+        local plrs = game.Players:GetChildren()
+        print("=============================== - "..#plrs.." Players")
+        for i, v in pairs(game.Players:GetChildren()) do
+            print(v.Name.."'s Rank is: "..v:GetRoleInGroup(12832629))
+            if v:GetRoleInGroup(12832629) ~= "Guest" and v:GetRoleInGroup(12832629) ~= "Member" then
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Mod Notifier";
+                    Text = "Mod, "..v.Name.." is in your game";
+                    Icon = "";
+                    Duration = 99999;
+                    Callback = bindableFunction;
+                    Button1 = "Leave";
+                    Button2 = "Ignore";
+                })
+            end
+        end
+        game.Players.PlayerAdded:Connect(function(player)
+            local plrs = game.Players:GetChildren()
+            print("=============================== - "..#plrs.." Players")
+            print(player.Name.."'s Rank is: "..player:GetRoleInGroup(12832629))
+            if player:GetRoleInGroup(12832629) ~= "Guest" and player:GetRoleInGroup(12832629) ~= "Member" then
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Mod Notifier";
+                    Text = "Mod, "..player.Name.." is in your game";
+                    Icon = "";
+                    Duration = 99999;
+                    Callback = bindableFunction;
+                    Button1 = "Leave";
+                    Button2 = "Ignore";
+                })
+            end
+        end)
+    end)
+end)
+
 local AutoPickup = LeftGroupBox:AddButton('Auto Pickup', function()
     local rs = game:GetService("RunService")
     local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
