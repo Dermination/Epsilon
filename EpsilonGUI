@@ -42,17 +42,21 @@ local NoFall = LeftGroupBox:AddButton('No Fall Damage', function()
 end)
 
 local AutoPickup = LeftGroupBox:AddButton('Auto Pickup', function()
+    local rs = game:GetService("RunService")
     local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
-    for i, v in pairs(workspace.MouseIgnore:GetChildren()) do
-        if v:IsA("Model") and v.Name ~= "Entity" then
-            for _, g in pairs(v:GetDescendants()) do
-                if g:IsA("ClickDetector") then
-                    plr.CFrame = g.Parent.CFrame
-                    wait(0.3)
+    rs.RenderStepped:Connect(function()
+        for i, v in pairs(workspace.MouseIgnore:GetChildren()) do
+            if v:IsA("Model") and v.Name ~= "Entity" then
+                for _, g in pairs(v:GetDescendants()) do
+                    if g:IsA("ClickDetector") then
+                        if (plr.Position - g.Parent.Position).Magnitude <=18 then
+                            fireclickdetector(g)
+                        end
+                    end
                 end
             end
         end
-    end
+    end)
 end)
 
 local BuyFood = LeftGroupBox:AddButton('Meat', function()
@@ -63,7 +67,7 @@ local BuyFood = LeftGroupBox:AddButton('Meat', function()
     end
 end)
 
-local AutoCasket = LeftGroupBox:AddButton('Auto Casket (Catacombs)', function()
+local AutoCasket = LeftGroupBox:AddButton('Auto Casket', function()
     local plr = game.Players.LocalPlayer
     local char = plr.Character
     local root = char:FindFirstChild("HumanoidRootPart")
