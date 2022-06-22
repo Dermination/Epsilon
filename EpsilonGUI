@@ -197,6 +197,10 @@ end)
 
 local TabBox = Tabs.Classes:AddLeftTabbox() -- Add Tabbox on left side
 local TabBox1 = Tabs.Classes:AddRightTabbox() -- Add Tabbox on right side
+local TabBox2 = Tabs.Classes:AddLeftTabbox() -- Add Tabbox on left side
+local TabBox3 = Tabs.Classes:AddRightTabbox() -- Add Tabbox on right side
+local TabBox4 = Tabs.Classes:AddLeftTabbox() -- Add Tabbox on left side
+local TabBox5 = Tabs.Classes:AddRightTabbox() -- Add Tabbox on right side
 
 local Tab1 = TabBox:AddTab('Oni')
 
@@ -276,53 +280,9 @@ local KizaruArmor = Tab3:AddButton('Armor (250 Silver)', function()
     end 
 end)
 
-local Tab4 = TabBox:AddTab('Inferno')
+local Tab4 = TabBox:AddTab('Shaolin')
 
-local BLeg2 = Tab4:AddButton('Black Leg (600 Silver)', function()
-    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Gordon:GetDescendants()) do 
-        if v:IsA("ClickDetector") then 
-            fireclickdetector(v)
-        end 
-    end 
-end)
-
-local Inferno = Tab4:AddButton('Inferno (1000 Silver)', function()
-    for i,v in pairs(game:GetService("Workspace").mera:GetDescendants()) do 
-        if v:IsA("ClickDetector") then 
-            fireclickdetector(v)
-        end 
-    end 
-end)
-
-local InfernoArmor = Tab4:AddButton('Armor (1000 Silver)', function()
-    for i,v in pairs(game:GetService("Workspace").Ace:GetDescendants()) do 
-        if v:IsA("ClickDetector") then 
-            fireclickdetector(v)
-        end 
-    end 
-end)
-
-local Tab5 = TabBox1:AddTab('Beowulf')
-
-local Pugilist = Tab5:AddButton('Pugilist (500 Silver)', function()
-    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Wooden Dummy"]:GetDescendants()) do 
-        if v:IsA("ClickDetector") then 
-            fireclickdetector(v)
-        end 
-    end 
-end)
-
-local Beowulf = Tab5:AddButton('Beowulf (1750 Silver)', function()
-    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Beowulf:GetDescendants()) do 
-        if v:IsA("ClickDetector") then 
-            fireclickdetector(v)
-        end 
-    end 
-end)
-
-local Tab6 = TabBox1:AddTab('Shaolin')
-
-local Monk1 = Tab6:AddButton('Monk (200 Silver)', function()
+local Monk1 = Tab4:AddButton('Monk (200 Silver)', function()
     for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Isaac:GetDescendants()) do 
         if v:IsA("ClickDetector") then 
             fireclickdetector(v)
@@ -330,7 +290,7 @@ local Monk1 = Tab6:AddButton('Monk (200 Silver)', function()
     end 
 end)
 
-local Shaolin = Tab6:AddButton('Shaolin (2500 Silver)', function()
+local Shaolin = Tab4:AddButton('Shaolin (2500 Silver)', function()
     for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Menime:GetDescendants()) do 
         if v:IsA("ClickDetector") then 
             fireclickdetector(v)
@@ -338,7 +298,7 @@ local Shaolin = Tab6:AddButton('Shaolin (2500 Silver)', function()
     end 
 end)
 
-local ShaolinArmor = Tab6:AddButton('Armor (2000 Silver)', function()
+local ShaolinArmor = Tab4:AddButton('Armor (2000 Silver)', function()
     for i,v in pairs(game:GetService("Workspace").SecondOrder:GetDescendants()) do 
         if v:IsA("ClickDetector") then 
             fireclickdetector(v)
@@ -346,8 +306,533 @@ local ShaolinArmor = Tab6:AddButton('Armor (2000 Silver)', function()
     end 
 end)
 
--- You can now call AddToggle, etc on the tabs you added to the Tabbox
+local Tab5 = TabBox1:AddTab('Inferno')
 
+local BLeg2 = Tab5:AddButton('Black Leg (600 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Gordon:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Inferno = Tab5:AddButton('Inferno (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").mera:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local InfernoArmor = Tab5:AddButton('Armor (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Ace:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab6 = TabBox1:AddTab('Beowulf')
+
+local Pugilist = Tab6:AddButton('Pugilist (500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Wooden Dummy"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Beowulf = Tab6:AddButton('Beowulf (1750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Beowulf:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab7 = TabBox1:AddTab('Spy')
+
+local Thief = Tab7:AddButton('Thief (100 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Fabiana:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Spy = Tab7:AddButton('Spy (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Drake:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Whisperer = Tab7:AddButton('Whisperer (800 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Rorschach:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local WhispererArmor = Tab7:AddButton('Armor (250 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.Whisperer:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab8 = TabBox1:AddTab('Faceless')
+
+local Thief1 = Tab8:AddButton('Thief (100 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Fabiana:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Assassin = Tab8:AddButton('Assassin (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Jafar:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Faceless = Tab8:AddButton('Faceless (1400 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Knight:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local FacelessArmor = Tab8:AddButton('Armor (??? Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.FacelessArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab9 = TabBox2:AddTab('Shinobi')
+
+local Thief2 = Tab9:AddButton('Thief (100 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Fabiana:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Assassin1 = Tab9:AddButton('Assassin (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Jafar:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Shinobi = Tab9:AddButton('Shinobi (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Howl:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local ShinobiArmor = Tab9:AddButton('Armor (??? Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Clothing.ShinobiArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab10 = TabBox2:AddTab('Oath')
+
+local Thief3 = Tab10:AddButton('Thief (100 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Fabiana:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Lawkeeper = Tab10:AddButton('Lawkeeper (750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Lawkeeper Gael"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Oathsworn = Tab10:AddButton('Oathsworn (2500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["The Cold Lady"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local OathswornArmor = Tab10:AddButton('Armor (Free)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.OathswornGear:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab11 = TabBox2:AddTab('Adjudicat')
+
+local Thief4 = Tab11:AddButton('Thief (100 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Fabiana:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Lawkeeper1 = Tab11:AddButton('Lawkeeper (750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Lawkeeper Gael"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Adjudicator = Tab11:AddButton('Adjudicator (3000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Oathbreaker:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local AdjudicatorArmor = Tab11:AddButton('Armor (Free)', function()
+    for i,v in pairs(game:GetService("Workspace").AdjudicatorGear:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab12 = TabBox2:AddTab('DKnight')
+
+local PitFighter = Tab12:AddButton('Pit Fighter (150 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Cu:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local ChurchKnight = Tab12:AddButton('Church Knight (500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Prince's Disciple"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local DeepKnight = Tab12:AddButton('Deep Knight (2600 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.CK:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab13 = TabBox3:AddTab('Dslayer')
+
+local PitFighter1 = Tab13:AddButton('Pit Fighter (150 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Cu:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local DragonKnight = Tab13:AddButton('Dragon Knight (500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Tiger:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local DragonSlayer = Tab13:AddButton('Dragon Slayer (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Fang:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local DragonSlayerArmor = Tab13:AddButton('Armor (1350 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").SlayerArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab14 = TabBox3:AddTab('SigSpear')
+
+local PitFighter2 = Tab14:AddButton('Pit Fighter (150 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Cu:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SecondDivisionFollower = Tab14:AddButton('Second Division Follower (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Scar:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SDE = Tab14:AddButton('Second Division Executive (5000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Commander:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SDEArmor = Tab14:AddButton('Armor (2000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").SecondOrderOrig:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab15 = TabBox3:AddTab('Sigil')
+
+local Warrior = Tab15:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SigilKnight = Tab15:AddButton('Sigil Knight (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Frey:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SKC = Tab15:AddButton('Sigil Knight Commander (2000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Jagen:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SKCArmor = Tab15:AddButton('Armor (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.KalveyArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab16 = TabBox3:AddTab('DSigil')
+
+local Warrior1 = Tab16:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SigilKnight1 = Tab16:AddButton('Sigil Knight (450 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Frey:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local WraightKnight = Tab16:AddButton('Wraith Knight (1500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Eldin:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local WraightKnightArmor = Tab16:AddButton('Armor (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Clothing["Wraith Knight"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab17 = TabBox4:AddTab('Abyss')
+
+local Warrior2 = Tab17:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Warlord = Tab17:AddButton('Warlord (750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Gatsu:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+Tab17:AddLabel('Quest is on Trello for Ultra.')
+
+local Tab18 = TabBox4:AddTab('Sunlight')
+
+local Warrior3 = Tab18:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SunlightWarrior = Tab18:AddButton('Sunlight Warrior (350 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Uriel:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Sunlight = Tab18:AddButton('Sunlight Crusader (2500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Eldin:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SunlightArmor = Tab18:AddButton('Armor (2500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").SunlightCrusaderArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab19 = TabBox4:AddTab('Sentinel')
+
+local Warrior4 = Tab19:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Siege = Tab19:AddButton('Siege (750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Mirunes:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Sentinel = Tab19:AddButton('Sentinel (2750 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Mirunes Timeskip"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local SentinelArmor = Tab19:AddButton('Armor (Free)', function()
+    for i,v in pairs(game:GetService("Workspace").Map.Tundra.SentinelArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab20 = TabBox4:AddTab('Vergil')
+
+local Warrior5 = Tab20:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Samurai = Tab20:AddButton('Samurai (650 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Average Genji Main"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+Tab20:AddLabel('Quest is on Trello for Ultra.')
+
+local VergilArmor = Tab20:AddButton('Armor (??? Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Clothing.Vergil:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Tab21 = TabBox5:AddTab('Denizen')
+
+local Warrior6 = Tab21:AddButton('Warrior (140 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Alfric:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Samurai1 = Tab21:AddButton('Samurai (650 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers["Average Genji Main"]:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local Denizen = Tab21:AddButton('Denizen (1000 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").NPCs.Trainers.Shadow:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+local DenizenArmor = Tab21:AddButton('Armor (2500 Silver)', function()
+    for i,v in pairs(game:GetService("Workspace").DenizenArmor:GetDescendants()) do 
+        if v:IsA("ClickDetector") then 
+            fireclickdetector(v)
+        end 
+    end 
+end)
+
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
 
 -- UI Settings
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
